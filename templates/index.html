@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>Helmet Detection System</title>
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-center mb-4">Helmet Detection System</h1>
+        <div class="card">
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data" class="form-inline justify-content-center mb-4">
+                    <input type="file" name="file" accept="image/*" required class="form-control mr-2">
+                    <button type="submit" class="btn btn-primary">Upload Image</button>
+                </form>
+
+                {% if output_image %}
+                    <h2 class="text-center">Detection Result:</h2>
+                    <div class="text-center">
+                        <img src="{{ output_image }}" alt="Detected Image" class="img-fluid rounded" style="max-width: 100%;">
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <div id="loadingSpinner" class="text-center" style="display:none;">
+        <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <script>
+        const form = document.querySelector('form');
+        const loadingSpinner = document.getElementById('loadingSpinner');
+    
+        form.onsubmit = () => {
+            loadingSpinner.style.display = 'block';
+        };
+    </script>
+        
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
