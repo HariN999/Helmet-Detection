@@ -72,6 +72,3 @@ http://localhost:5000
 2. Create a new branch (`feature-xyz`)
 3. Commit your changes
 4. Push and open a Pull Request
-
-👉 Do you want me to also prepare a **requirements.txt** file for your repo so others can set it up without guessing dependencies?
-```
